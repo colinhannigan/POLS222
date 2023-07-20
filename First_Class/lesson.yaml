@@ -1,0 +1,31 @@
+- Class: meta
+  Course: POLS222
+  Lesson: First Class
+  Author: Colin Hannigan
+  Type: Standard
+  Organization: CSB/SJU POLS
+  Version: 2.4.5
+
+- Class: text
+  Output: Welcome To Hell.
+
+- Class: mult_question
+  Output: How does Buddy the Elf answer the phone?
+  AnswerChoices: Buddy the Elf - what's your favorite color?; Sup?; Howdy, I'm Buddy.
+  CorrectAnswer: Buddy the Elf - what's your favorite color?
+  AnswerTests: omnitest(correctVal="Buddy the Elf - what's your favorite color?")
+  Hint: Type a hint.
+
+- Class: exact_question
+  Output: Type in an integer greater than 1 and less than 3.
+  CorrectAnswer: 2
+  AnswerTests: omnitest(correctVal = 2)
+  Hint: Type a hint.
+
+- Class: mult_question
+  Output: Would you like to submit the log of this lesson to Google Forms so
+    that your instructor may evaluate your progress?
+  AnswerChoices: Yes;No
+  CorrectAnswer: NULL
+  AnswerTests: submit_log()
+  Hint: hint
