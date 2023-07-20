@@ -4,3 +4,5 @@
 # throughout the lesson.
 
 swirl_options(swirl_logging = TRUE)
+install.packages("base64enc")
+library(base64enc)
