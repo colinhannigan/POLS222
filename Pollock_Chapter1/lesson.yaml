@@ -1,0 +1,109 @@
+- Class: meta
+  Course: POLS222
+  Lesson: Pollock_Chapter1
+  Author: Colin Hannigan
+  Type: Standard
+  Organization: CSB/SJU POLS
+  Version: 2.4.5
+
+- Class: mult_question
+  Output: Multiple possible answers tester.
+  AnswerChoices: 1;3;5;7
+  CorrectAnswer: 7
+  AnswerTests: val_matches('[5|7]')
+  Hint: Type a hint.
+
+- Class: mult_question
+  Output: Each time you start an R session using the R package that bundles the functions and dataset used in this book, you must type and run which one of the following expressions?
+  AnswerChoices: library(RCPA3); welcome(); help( )
+  CorrectAnswer: library(RCPA3)
+  AnswerTests: omnitest(correctVal='library(RCPA3)')
+  Hint: Type a hint.
+
+- Class: cmd_question
+  Output: Make a new variable called 'thisNumber' and set it equal to 8. 
+  CorrectAnswer: thisNumber <- 8
+  AnswerTests: var_is_a('numeric', 'thisNumber');omnitest(correctExpr='thisNumber <- 8')
+  Hint: 'Just type the following: thisNumber <- 8'
+
+- Class: cmd_question
+  Output: Make a new variable called 'thisNumber' and set it equal to 8. 
+  CorrectAnswer: anotherNumber <- thisNumber / 4 ^ 3 * 2
+  AnswerTests: var_is_a('numeric', 'anotherNumber');omnitest(correctExpr='anotherNumber <- thisNumber / 4 ^ 3 * 2')
+  Hint: 'Just type the following: anotherNumber <- thisNumber / 4 ^ 3 * 2'
+
+- Class: cmd_question
+  Output: Make a new variable called 'thisNumber' and set it equal to 8. 
+  CorrectAnswer: nextNumber <- sqrt(anotherNumber)
+  AnswerTests: var_is_a('numeric', 'nextNumber');omnitest(correctExpr='nextNumber <- sqrt(anotherNumber)')
+  Hint: 'Just type the following: nextNumber <- sqrt(anotherNumber)'
+
+- Class: cmd_question
+  Output: Make a new variable called 'thisNumber' and set it equal to 8. 
+  CorrectAnswer: theAnswer <- nextNumber + thisNumber
+  AnswerTests: var_is_a('numeric', 'theAnswer');omnitest(correctExpr='theAnswer <- nextNumber + thisNumber')
+  Hint: 'Just type the following: theAnswer <- nextNumber + thisNumber'
+
+- Class: exact_question
+  Output: What is the value of the variable called 'theAnswer'?
+  CorrectAnswer: 8.5
+  AnswerTests: omnitest(correctVal='8.5')
+  Hint: Try entering play() mode, and typing the variable name into the R prompt to see the value it returns.
+
+- Class: mult_question
+  Output: Which of the following variables has the LARGEST value?
+  AnswerChoices: thisNumber; anotherNumber; nextNumber; theAnswer
+  CorrectAnswer: theAnswer
+  AnswerTests: omnitest(correctVal='theAnswer')
+  Hint: Try entering play() mode and typing each of the 4 variable name into the R prompt to see the values of each object.
+
+- Class: mult_question
+  Output: Which of the following variables has the SMALLEST value?
+  AnswerChoices: thisNumber; anotherNumber; nextNumber; theAnswer
+  CorrectAnswer: anotherNumber
+  AnswerTests: omnitest(correctVal='anotherNumber')
+  Hint: Try entering play() mode and typing each of the 4 variable names into the R prompt to see the values of each object.
+
+
+- Class: mult_question
+  Output: 'Evaluate the following statement: Everything that exists in the R environment is an object. Everything that happens is a function call.'
+  AnswerChoices: True; False
+  CorrectAnswer: True
+  AnswerTests: omnitest(correctVal='True')
+  Hint: 'Re-read the Pollock book, sections 1.1 and 1.2!'
+
+
+- Class: text
+  Output: You must use functions to analyze data with R. Section 1.3 of the Pollock book introduced functions and explained how to use function arguments.
+
+- Class: text_question
+  Output: Why is it useful to know the difference between a function's required arguments and its optional arguments?
+  CorrectAnswer: e
+  AnswerTests: val_matches('*')
+  Hint: Type a hint.
+
+- Class: text
+  Output: "You'll get an error if you attempt to execute the following statement: plot()"
+
+- Class: text
+  Output: You can't call R's plot function without any arguments.
+
+- Class: text_question
+  Output: What's the bare minimum plot function call that will generate a graphic rather than an error message?
+  CorrectAnswer: e
+  AnswerTests: val_matches('*')
+  Hint: Type a hint.
+
+- Class: text_question
+  Output: A political science major wants to use R's plot function to create a compelling graphic. The student plans to follow an example that uses a dozen optional arguments to make labels, modify colors, and implement other refinements. Why should the student start with a bare minimum plot and add optional arguments one at a time?
+  CorrectAnswer: e
+  AnswerTests: val_matches('*')
+  Hint: Type a hint.
+
+- Class: mult_question
+  Output: Would you like to submit the log of this lesson to Google Forms so
+    that your instructor may evaluate your progress?
+  AnswerChoices: Yes;No
+  CorrectAnswer: NULL
+  AnswerTests: submit_log()
+  Hint: hint
