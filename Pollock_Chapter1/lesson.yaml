@@ -6,16 +6,16 @@
   Organization: CSB/SJU POLS
   Version: 2.4.5
 
-- Class: mult_question
-  Output: Multiple possible answers tester.
-  AnswerChoices: 1;3;5;7
-  CorrectAnswer: 7
-  AnswerTests: val_matches('[5|7]')
-  Hint: Type a hint.
+# - Class: mult_question
+#   Output: Multiple possible answers tester.
+#   AnswerChoices: 1;3;5;7
+#   CorrectAnswer: 7
+#   AnswerTests: val_matches('[5|7]')
+#   Hint: Type a hint.
 
 - Class: mult_question
   Output: Each time you start an R session using the R package that bundles the functions and dataset used in this book, you must type and run which one of the following expressions?
-  AnswerChoices: library(RCPA3); welcome(); help( )
+  AnswerChoices: library(RCPA3); welcome(); help()
   CorrectAnswer: library(RCPA3)
   AnswerTests: omnitest(correctVal='library(RCPA3)')
   Hint: Type a hint.
@@ -27,19 +27,19 @@
   Hint: 'Just type the following: thisNumber <- 8'
 
 - Class: cmd_question
-  Output: Make a new variable called 'thisNumber' and set it equal to 8. 
+  Output: "Make a new variable called 'anotherNumber' and set it equal to the following expression: thisNumber / 4 ^ 3 * 2" 
   CorrectAnswer: anotherNumber <- thisNumber / 4 ^ 3 * 2
   AnswerTests: var_is_a('numeric', 'anotherNumber');omnitest(correctExpr='anotherNumber <- thisNumber / 4 ^ 3 * 2')
   Hint: 'Just type the following: anotherNumber <- thisNumber / 4 ^ 3 * 2'
 
 - Class: cmd_question
-  Output: Make a new variable called 'thisNumber' and set it equal to 8. 
+  Output: "Make a new variable called 'nextNumber' that takes the square root of 'anotherNumber', like this: sqrt(anotherNumber)" 
   CorrectAnswer: nextNumber <- sqrt(anotherNumber)
   AnswerTests: var_is_a('numeric', 'nextNumber');omnitest(correctExpr='nextNumber <- sqrt(anotherNumber)')
   Hint: 'Just type the following: nextNumber <- sqrt(anotherNumber)'
 
 - Class: cmd_question
-  Output: Make a new variable called 'thisNumber' and set it equal to 8. 
+  Output: Make one more new variable called 'theAnswer' that adds 'nextNumber' and 'thisNumber' together. 
   CorrectAnswer: theAnswer <- nextNumber + thisNumber
   AnswerTests: var_is_a('numeric', 'theAnswer');omnitest(correctExpr='theAnswer <- nextNumber + thisNumber')
   Hint: 'Just type the following: theAnswer <- nextNumber + thisNumber'
@@ -48,21 +48,21 @@
   Output: What is the value of the variable called 'theAnswer'?
   CorrectAnswer: 8.5
   AnswerTests: omnitest(correctVal='8.5')
-  Hint: Try entering play() mode, and typing the variable name into the R prompt to see the value it returns.
+  Hint: Try checking the value in the Environment tab of RStudio to the right, typing the variable name as the answer, or entering play() mode to check the value before returning here to type it in.
 
 - Class: mult_question
   Output: Which of the following variables has the LARGEST value?
   AnswerChoices: thisNumber; anotherNumber; nextNumber; theAnswer
   CorrectAnswer: theAnswer
   AnswerTests: omnitest(correctVal='theAnswer')
-  Hint: Try entering play() mode and typing each of the 4 variable name into the R prompt to see the values of each object.
+  Hint: Try checking the value in the Environment tab of RStudio to the right or entering play() mode to check the variable values before returning here to enter the correct answer.
 
 - Class: mult_question
   Output: Which of the following variables has the SMALLEST value?
   AnswerChoices: thisNumber; anotherNumber; nextNumber; theAnswer
   CorrectAnswer: anotherNumber
   AnswerTests: omnitest(correctVal='anotherNumber')
-  Hint: Try entering play() mode and typing each of the 4 variable names into the R prompt to see the values of each object.
+  Hint: Try checking the value in the Environment tab of RStudio to the right or entering play() mode to check the variable values before returning here to enter the correct answer.
 
 
 - Class: mult_question
@@ -82,16 +82,22 @@
   AnswerTests: val_matches('*')
   Hint: Type a hint.
 
-- Class: text
-  Output: "You'll get an error if you attempt to execute the following statement: plot()"
-
-- Class: text
-  Output: You can't call R's plot function without any arguments.
-
 - Class: text_question
+  Output: "You'll get an error if you attempt to execute the following statement: plot(). Try it now. Type plot() and see what happens."
+  CorrectAnswer: plot()
+  AnswerTests: val_matches('plot()')
+  Hint: Just type plot()
+
+- Class: text
+  Output: 'Error in xy.coords(x, y, xlabel, ylabel, log) : argument "x" is missing, with no default'
+
+- Class: text
+  Output: The reason for the error is that you can't simply call R's plot function without _any arguments_.
+
+- Class: cmd_question
   Output: What's the bare minimum plot function call that will generate a graphic rather than an error message?
-  CorrectAnswer: e
-  AnswerTests: val_matches('*')
+  CorrectAnswer: plot(*)
+  AnswerTests: expr_uses_func('plot')
   Hint: Type a hint.
 
 - Class: text_question
@@ -101,8 +107,7 @@
   Hint: Type a hint.
 
 - Class: mult_question
-  Output: Would you like to submit the log of this lesson to Google Forms so
-    that your instructor may evaluate your progress?
+  Output: Ready to submit the log of this lesson to Google Forms so that your instructor may evaluate your progress. Completing this question opens up a link to a pre-filled Google Form. Do not edit the form at all before submitting.
   AnswerChoices: Yes;No
   CorrectAnswer: NULL
   AnswerTests: submit_log()
